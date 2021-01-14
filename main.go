@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/go-co-op/gocron"
+	c "github.com/jeanazuos/criptoalerts/client"
 )
 
 func task() {
