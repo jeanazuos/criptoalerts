@@ -7,7 +7,6 @@ import (
 	"github.com/jeanazuos/criptoalerts/client"
 
 	"github.com/go-co-op/gocron"
-	c "github.com/jeanazuos/criptoalerts/client"
 )
 
 func task() {
