@@ -1,7 +1,6 @@
 package client
 
 import (
-	"encoding/json"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -12,9 +11,7 @@ type ativo struct {
 	Ticker map[string]interface{} `json:"Ticker"`
 }
 
-func ClientRequest(moeda_type string) (string, map[string]interface{}) {
-
-	endpoint := "https://www.mercadobitcoin.net/api/" + moeda_type + "/ticker/"
+func ClientRequest(endpoint string) []byte {
 
 	client := http.Client{
 		Timeout: time.Second * 2, //Timeout after 2 seconds
@@ -40,16 +37,16 @@ func ClientRequest(moeda_type string) (string, map[string]interface{}) {
 		log.Fatal(readErr)
 	}
 
-	var btc *ativo
-	btc = new(ativo)
+	// var btc *ativo
+	// btc = new(ativo)
 	// fmt.Println(string(body))
 
-	jsonErr := json.Unmarshal(body, &btc)
-	if jsonErr != nil {
-		log.Fatal(jsonErr)
-	}
+	// jsonErr := json.Unmarshal(body, &btc)
+	// if jsonErr != nil {
+	// 	log.Fatal(jsonErr)
+	// }
 
 	// fmt.Println(btc.Ticker, res.Status)
-	return moeda_type, btc.Ticker
+	return body
 
 }

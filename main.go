@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/jeanazuos/criptoalerts/client"
+	"github.com/jeanazuos/criptoalerts/cotacao"
 
 	"github.com/go-co-op/gocron"
 )
 
 func task() {
-	moedaType, cotacao := client.ClientRequest("btc")
+	bitcoin := cotacao.CriptoRequest("btc")
 
-	fmt.Println(moedaType, cotacao)
+	fmt.Println(bitcoin)
 }
 
 func main() {
